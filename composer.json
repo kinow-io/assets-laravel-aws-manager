@@ -1,5 +1,5 @@
 {
-    "name": "vinelab/cdn",
+    "name": "kinow-io/assets-laravel-aws-manager",
     "description": "Content Delivery Network (CDN) Package for Laravel",
     "license": "MIT",
     "keywords": [
@@ -21,7 +21,11 @@
         {
             "name": "Mahmoud Zalt",
             "email": "mahmoud@vinelab.com"
-        }
+        },
+	{
+	    "name": "Florian Bouchet",
+	    "email": "florian@kinow.com"
+	}
     ],
     "require": {
         "php": ">=5.5.0",
