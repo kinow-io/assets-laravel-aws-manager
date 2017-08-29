@@ -29,10 +29,10 @@ And then it allows him to switch between the local and the online version of the
 
 #### Via Composer
 
-Require `vinelab/cdn` in your project:
+Require `kinow-io/assets-laravel-aws-manager` in your project:
 
 ```bash 
-composer require vinelab/cdn:*
+composer require kinow-io/assets-laravel-aws-manager:*
 ```
 
 *Since this is a Laravel package we need to register the service provider:*
@@ -60,7 +60,7 @@ AWS_SECRET_ACCESS_KEY=
 Publish the package config file:
 
 ```bash
-php artisan vendor:publish vinelab/cdn
+php artisan vendor:publish
 ```
 
 You can find it at `config/cdn.php`
