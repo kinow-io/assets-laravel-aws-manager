@@ -110,14 +110,12 @@ class CdnFacade implements CdnFacadeInterface
      *
      * @return mixed
      *
-     * @throws Eceptions\EmptyPathException, \InvalidArgumentException
+     * @throws Exceptions\EmptyPathException, \InvalidArgumentException
      */
     public function mix($path)
     {
-        static manifest = null;
-        if (is_null($manifest)) {
-            $manifest = json_decode(file_get_contents(public_path('rev-manifest.json')), true);
-        }
+        static $manifest = null;
+        $manifest = json_decode(file_get_contents(public_path('rev-manifest.json')), true);
         if (isset($manifest[$path])) {
             return $this->generateUrl($manifest[$path], '');
         }
