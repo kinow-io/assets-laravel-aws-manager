@@ -112,17 +112,17 @@ class CdnFacade implements CdnFacadeInterface
      *
      * @throws Eceptions\EmptyPathException, \InvalidArgumentException
      */
-     public function mix($path)
-     {
-	static manifest = null;
-	if (is_null($manifest)) {
-	   $manifest = json_decode(file_get_contents(public_path('rev-manifest.json')), true);
-	}
-	if (isset($manifest[$path])) {
-	   return $this->generateUrl($manifest[$path], '');
-	}
-	throw new \InvalidArgumentException("File {$path} not defined in asset manifest.");
-     }
+    public function mix($path)
+    {
+        static manifest = null;
+        if (is_null($manifest)) {
+            $manifest = json_decode(file_get_contents(public_path('rev-manifest.json')), true);
+        }
+        if (isset($manifest[$path])) {
+            return $this->generateUrl($manifest[$path], '');
+        }
+        throw new \InvalidArgumentException("File {$path} not defined in asset manifest.");
+    }
 
     /**
      * this function will be called from the 'views' using the
