@@ -114,6 +114,7 @@ class CdnFacade implements CdnFacadeInterface
      */
     public function mix($path)
     {
+        $path = '/'.$path;
         $manifest = json_decode(file_get_contents(public_path('mix-manifest.json')), true);
         if (isset($manifest[$path])) {
             return $this->generateUrl($manifest[$path], '');
