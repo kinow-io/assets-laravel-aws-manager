@@ -104,6 +104,24 @@ class CdnFacade implements CdnFacadeInterface
     }
 
     /**
+     * This function allow Laravel Mix to call the right rev-manifest for assets.
+     *
+     * @param $path
+     *
+     * @return mixed
+     *
+     * @throws Exceptions\EmptyPathException, \InvalidArgumentException
+     */
+    public function mix($path)
+    {
+        $manifest = json_decode(file_get_contents(public_path('mix-manifest.json')), true);
+        if (isset($manifest[$path])) {
+            return $this->generateUrl($manifest[$path], '');
+        }
+        throw new \InvalidArgumentException("File {$path} not defined in asset manifest.");
+    }
+
+    /**
      * this function will be called from the 'views' using the
      * 'Cdn' facade {{Cdn::path('')}} to convert the path into
      * it's CDN url.
